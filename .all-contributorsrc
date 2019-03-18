@@ -1,0 +1,13 @@
+{
+  "projectName": "@status-board/cli",
+  "projectOwner": "status-board",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": true,
+  "contributors": [],
+  "contributorsPerLine": 7
+}
