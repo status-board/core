@@ -5,6 +5,8 @@
   "publishConfig": {
     "access": "public"
   },
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
   "scripts": {
     "type-check": "tsc --noEmit",
     "type-check:watch": "npm run type-check -- --watch",
@@ -24,10 +26,10 @@
     "test:coverage:codecov": "codecov",
     "test:watch": "jest --watch",
     "ts:build": "tsc",
-    "eslint": "eslint src/**/*",
-    "eslint:fix": "eslint --fix src/**/*",
+    "eslint": "eslint src/**/*.ts",
+    "eslint:fix": "eslint --fix src/**/*.ts",
     "ts:watch": "tsc -w",
-    "verify": "npm run verify:npmvet && npm run verify:david && npm run verify:audit && npm run verify:tscheck && npm run tslint && npm run test",
+    "verify": "npm run verify:npmvet && npm run verify:david && npm run verify:audit && npm run verify:tscheck && npm run eslint && npm run test",
     "verify:circleci": "circleci config validate",
     "verify:ci": "npm run verify:npmvet && npm run verify:audit && npm run test:ci",
     "verify:check": "depcheck",
@@ -43,20 +45,32 @@
     "@babel/plugin-proposal-object-rest-spread": "7.4.3",
     "@babel/preset-env": "7.4.3",
     "@babel/preset-typescript": "7.3.3",
+    "@types/chance": "1.0.2",
+    "@types/got": "9.4.3",
     "@types/jest": "24.0.11",
+    "@types/koa": "2.0.48",
+    "@types/koa-router": "7.0.40",
+    "@types/koa-static": "4.0.1",
+    "@types/koa__cors": "2.2.3",
+    "@types/lodash": "4.14.123",
+    "@types/node": "11.13.6",
+    "@types/signale": "1.2.1",
+    "@types/socket.io": "2.1.2",
     "@typescript-eslint/eslint-plugin": "1.6.0",
     "@typescript-eslint/parser": "1.6.0",
     "all-contributors-cli": "6.3.1",
+    "chance": "1.0.18",
     "codecov": "3.3.0",
     "commitizen": "3.1.1",
     "cz-conventional-changelog": "2.1.0",
     "eslint": "5.16.0",
     "eslint-config-airbnb-base": "13.1.0",
     "eslint-plugin-import": "2.17.2",
+    "eslint-plugin-jest": "22.4.1",
     "jest": "24.7.1",
     "lint-staged": "8.1.5",
     "npmvet": "0.1.5",
-    "semantic-release": "15.13.3",
+    "semantic-release": "15.13.12",
     "ts-jest": "24.0.2",
     "typescript": "3.4.4"
   },
@@ -64,5 +78,15 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
+  },
+  "dependencies": {
+    "@koa/cors": "3.0.0",
+    "got": "9.6.0",
+    "koa": "2.7.0",
+    "koa-router": "7.4.0",
+    "koa-static": "5.0.0",
+    "lodash": "4.17.11",
+    "signale": "1.4.0",
+    "socket.io": "2.2.0"
   }
 }

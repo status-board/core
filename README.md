@@ -3,7 +3,7 @@
 
 @status-board/core
 
-`npm i --save-dev @status-board/core`
+`npm i --save @status-board/core`
 
 ## Contributors
 

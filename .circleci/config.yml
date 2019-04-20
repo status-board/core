@@ -20,17 +20,8 @@ install_steps: &install_steps
           - node-modules-{{ .Branch }}-
           - node-modules-
     - run:
-        name: Install Greenkeeper Packages
-        command: |
-          sudo npm install -g greenkeeper-lockfile@1
-    - run:
         name: Install Dependencies
         command: npm i
-    - run:
-        name: Updating Lockfiles
-        command: |
-          greenkeeper-shrinkwrap-update
-          greenkeeper-shrinkwrap-upload
     - save_cache:
         name: Save node_modules cache
         key: node-modules-{{ .Branch }}-{{ checksum "package-lock.json" }}
