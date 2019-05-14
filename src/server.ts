@@ -11,7 +11,9 @@ import Bus, { Subscription } from './bus';
 import CoreApi from './core-api';
 import logger from './logger';
 
-const localConfigFilePath = path.join(process.cwd(), 'config', 'config');
+const baseDir = process.cwd();
+const localBuildFilePath = path.join(baseDir, 'build');
+const localConfigFilePath = path.join(baseDir, 'config', 'config');
 
 export function readConfigIfExists(fileName: string): any {
     let configFileName = fileName;
@@ -42,9 +44,8 @@ const socket = SocketIO(server, { serveClient: false });
 
 app.use(cors());
 
-const baseDir = process.cwd();
-logger.info(`serving static contents from ${baseDir}/../client/build`);
-app.use(serve(`${baseDir}/../client/build`));
+logger.info(`serving static contents from ${localBuildFilePath}`);
+app.use(serve(localBuildFilePath));
 
 
 bus.registerApi('Status-Board', CoreApi(bus));
