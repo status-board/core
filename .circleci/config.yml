@@ -58,14 +58,6 @@ jobs:
             sudo npm i -g npmvet
             npm run verify:npmvet
 
-  audit:
-    <<: *docker_defaults
-    steps:
-      - *attach_workspace
-      - run:
-          name: NPM Audit Fix
-          command: npm audit fix
-
   eslint:
     <<: *docker_defaults
     steps:
@@ -136,12 +128,9 @@ workflows:
       - npmvet:
           requires:
             - install
-      - audit:
-          requires:
-            - npmvet
       - eslint:
           requires:
-            - audit
+            - npmvet
       - test-node-8:
           requires:
             - eslint
