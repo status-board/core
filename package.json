@@ -79,7 +79,7 @@
     "eslint-config-airbnb-base": "13.2.0",
     "eslint-plugin-import": "2.18.0",
     "eslint-plugin-jest": "22.7.1",
-    "jest": "24.8.0",
+    "jest": "24.9.0",
     "lint-staged": "9.2.1",
     "npmvet": "0.1.5",
     "opt-cli": "1.6.0",
